@@ -1,9 +1,9 @@
-package it.balax85.examples.common.dto;
+package it.balax85.examples.common.dbo;
 
 /**
  * Created by andrea on 23/10/16.
  */
-public class ItemDto {
+public class ItemDbo {
 
     private Long id;
 
@@ -50,12 +50,12 @@ public class ItemDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ItemDto itemDto = (ItemDto) o;
+        ItemDbo itemDbo = (ItemDbo) o;
 
-        if (id != null ? !id.equals(itemDto.id) : itemDto.id != null) return false;
-        if (itemName != null ? !itemName.equals(itemDto.itemName) : itemDto.itemName != null) return false;
-        if (content != null ? !content.equals(itemDto.content) : itemDto.content != null) return false;
-        return price != null ? price.equals(itemDto.price) : itemDto.price == null;
+        if (id != null ? !id.equals(itemDbo.id) : itemDbo.id != null) return false;
+        if (itemName != null ? !itemName.equals(itemDbo.itemName) : itemDbo.itemName != null) return false;
+        if (content != null ? !content.equals(itemDbo.content) : itemDbo.content != null) return false;
+        return price != null ? price.equals(itemDbo.price) : itemDbo.price == null;
 
     }
 

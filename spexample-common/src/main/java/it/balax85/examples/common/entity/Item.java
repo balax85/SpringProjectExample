@@ -1,17 +1,33 @@
-package it.balax85.examples.common.dto;
+package it.balax85.examples.common.entity;
+
+import javax.persistence.*;
+import java.util.List;
 
 /**
- * Created by andrea on 23/10/16.
+ * Created by andrea on 27/10/16.
  */
-public class ItemDto {
+@Entity
+@Table(name="ITEM")
+public class Item {
 
+    @Id
+    @SequenceGenerator(name = "pk_sequence", sequenceName = "ITEM_ID_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "pk_sequence")
+    @Column(name = "ID")
     private Long id;
 
+    @Column(name = "ITEM_NAME")
     private String itemName;
 
+    @Lob
+    @Column(name = "CONTENT")
     private String content;
 
+    @Column(name = "PRICE")
     private Float price;
+
+    @ManyToMany(mappedBy = "items", fetch = FetchType.LAZY)
+    private List<Order> orders;
 
     public Long getId() {
         return id;
@@ -45,17 +61,24 @@ public class ItemDto {
         this.price = price;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ItemDto itemDto = (ItemDto) o;
+        Item item = (Item) o;
 
-        if (id != null ? !id.equals(itemDto.id) : itemDto.id != null) return false;
-        if (itemName != null ? !itemName.equals(itemDto.itemName) : itemDto.itemName != null) return false;
-        if (content != null ? !content.equals(itemDto.content) : itemDto.content != null) return false;
-        return price != null ? price.equals(itemDto.price) : itemDto.price == null;
+        if (id != null ? !id.equals(item.id) : item.id != null) return false;
+        if (itemName != null ? !itemName.equals(item.itemName) : item.itemName != null) return false;
+        return content != null ? content.equals(item.content) : item.content == null;
 
     }
 
@@ -64,7 +87,6 @@ public class ItemDto {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (itemName != null ? itemName.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
     }
 }

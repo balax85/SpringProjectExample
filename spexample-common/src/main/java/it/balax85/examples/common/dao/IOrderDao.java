@@ -1,5 +1,6 @@
 package it.balax85.examples.common.dao;
 
+import it.balax85.examples.common.dbo.OrderDbo;
 import it.balax85.examples.common.dto.OrderDto;
 
 import java.util.List;
@@ -9,12 +10,30 @@ import java.util.List;
  */
 public interface IOrderDao {
 
-    OrderDto insertOrder(OrderDto order);
+    /**
+     * insert a new order
+     * @param order the order to insert
+     * @return the order inserted
+     */
+    OrderDbo insertOrder(OrderDbo order);
 
-    OrderDto findById(Long id);
+    /**
+     * find an order from and id
+     * @param id the order's id
+     * @return the order found
+     */
+    OrderDbo findById(Long id);
 
-    List<OrderDto> getOrders();
+    /**
+     * get all the orders
+     * @return the orders
+     */
+    List<OrderDbo> getOrders();
 
+    /**
+     * delete an order from an id
+     * @param id the order's id
+     */
     void deleteOrder(Long id);
 
 }

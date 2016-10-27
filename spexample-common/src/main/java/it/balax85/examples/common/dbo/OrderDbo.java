@@ -1,4 +1,4 @@
-package it.balax85.examples.common.dto;
+package it.balax85.examples.common.dbo;
 
 import java.util.Date;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 /**
  * Created by andrea on 23/10/16.
  */
-public class OrderDto {
+public class OrderDbo {
 
     private Long id;
 
     private Date orderDate;
 
-    private List<ItemDto> items;
+    private List<ItemDbo> items;
 
     public Long getId() {
         return id;
@@ -30,11 +30,11 @@ public class OrderDto {
         this.orderDate = orderDate;
     }
 
-    public List<ItemDto> getItems() {
+    public List<ItemDbo> getItems() {
         return items;
     }
 
-    public void setItems(List<ItemDto> items) {
+    public void setItems(List<ItemDbo> items) {
         this.items = items;
     }
 
@@ -43,11 +43,11 @@ public class OrderDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderDto orderDto = (OrderDto) o;
+        OrderDbo orderDbo = (OrderDbo) o;
 
-        if (id != null ? !id.equals(orderDto.id) : orderDto.id != null) return false;
-        if (orderDate != null ? !orderDate.equals(orderDto.orderDate) : orderDto.orderDate != null) return false;
-        return items != null ? items.equals(orderDto.items) : orderDto.items == null;
+        if (id != null ? !id.equals(orderDbo.id) : orderDbo.id != null) return false;
+        if (orderDate != null ? !orderDate.equals(orderDbo.orderDate) : orderDbo.orderDate != null) return false;
+        return items != null ? items.equals(orderDbo.items) : orderDbo.items == null;
 
     }
 
