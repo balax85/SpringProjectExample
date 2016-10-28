@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property resource="application.properties" />
+
+    <appender name="FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${starterkit.log.dir}/starterkit.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %5p %-30.30logger{29} : %m%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${starterkit.log.dir}/starterkit.%d{yyyy-MM-dd}.log.gz</FileNamePattern>
+            <MaxHistory>60</MaxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="it.balax85.examples" level="DEBUG" />
+
+    <logger name="org.hibernate.SQL" level="INFO" />
+    <logger name="org.hibernate" level="INFO" />
+
+    <logger name="org.springframework" level="INFO" />
+    <logger name="org.apache" level="ERROR" />
+
+    <root level="INFO">
+        <appender-ref ref="FILE_APPENDER" />
+    </root>
+
+</configuration>

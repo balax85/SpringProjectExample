@@ -1,6 +1,7 @@
 package it.balax85.examples.core.dao;
 
 import it.balax85.examples.common.dao.IItemDao;
+import it.balax85.examples.common.dbo.ItemDbo;
 import it.balax85.examples.common.dto.ItemDto;
 
 import java.util.List;
@@ -11,17 +12,17 @@ import java.util.List;
 public class ItemDao implements IItemDao {
 
     @Override
-    public ItemDto insertItem(ItemDto item) {
+    public ItemDbo insertItem(ItemDbo item) {
         return null;
     }
 
     @Override
-    public ItemDto findById(Long id) {
+    public ItemDbo findById(Long id) {
         return null;
     }
 
     @Override
-    public List<ItemDto> getItems() {
+    public List<ItemDbo> getItems() {
         return null;
     }
 

@@ -1,6 +1,7 @@
 package it.balax85.examples.core.dao;
 
 import it.balax85.examples.common.dao.IOrderDao;
+import it.balax85.examples.common.dbo.OrderDbo;
 import it.balax85.examples.common.dto.OrderDto;
 
 import java.util.List;
@@ -9,18 +10,19 @@ import java.util.List;
  * Created by andrea on 27/10/16.
  */
 public class OrderDao implements IOrderDao {
+
     @Override
-    public OrderDto insertOrder(OrderDto order) {
+    public OrderDbo insertOrder(OrderDbo order) {
         return null;
     }
 
     @Override
-    public OrderDto findById(Long id) {
+    public OrderDbo findById(Long id) {
         return null;
     }
 
     @Override
-    public List<OrderDto> getOrders() {
+    public List<OrderDbo> getOrders() {
         return null;
     }
 
