@@ -26,8 +26,11 @@ public class Item {
     @Column(name = "PRICE")
     private Float price;
 
-    @ManyToMany(mappedBy = "items", fetch = FetchType.LAZY)
-    private List<Order> orders;
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private List<IngredientItem> ingredientItems;
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private List<ItemOrder> itemOrders;
 
     public Long getId() {
         return id;
@@ -61,12 +64,20 @@ public class Item {
         this.price = price;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<IngredientItem> getIngredientItems() {
+        return ingredientItems;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setIngredientItems(List<IngredientItem> ingredientItems) {
+        this.ingredientItems = ingredientItems;
+    }
+
+    public List<ItemOrder> getItemOrders() {
+        return itemOrders;
+    }
+
+    public void setItemOrders(List<ItemOrder> itemOrders) {
+        this.itemOrders = itemOrders;
     }
 
     @Override
@@ -78,7 +89,10 @@ public class Item {
 
         if (id != null ? !id.equals(item.id) : item.id != null) return false;
         if (itemName != null ? !itemName.equals(item.itemName) : item.itemName != null) return false;
-        return content != null ? content.equals(item.content) : item.content == null;
+        if (content != null ? !content.equals(item.content) : item.content != null) return false;
+        if (price != null ? !price.equals(item.price) : item.price != null) return false;
+        if (!ingredientItems.equals(item.ingredientItems)) return false;
+        return itemOrders.equals(item.itemOrders);
 
     }
 
@@ -87,6 +101,9 @@ public class Item {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (itemName != null ? itemName.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + ingredientItems.hashCode();
+        result = 31 * result + itemOrders.hashCode();
         return result;
     }
 }

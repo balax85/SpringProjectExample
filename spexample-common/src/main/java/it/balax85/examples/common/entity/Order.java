@@ -20,13 +20,8 @@ public class Order {
     @Column(name = "ORDER_DATE")
     private Date orderDate;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "ORDER_ITEM", joinColumns = {
-            @JoinColumn(name = "ID", nullable = false)
-    }, inverseJoinColumns = {
-            @JoinColumn(name = "ID", nullable = false)
-    })
-    private List<Item> items;
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private List<ItemOrder> itemOrders;
 
     public Long getId() {
         return id;
@@ -44,11 +39,32 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public List<Item> getItems() {
-        return items;
+    public List<ItemOrder> getItemOrders() {
+        return itemOrders;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setItemOrders(List<ItemOrder> itemOrders) {
+        this.itemOrders = itemOrders;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Order order = (Order) o;
+
+        if (id != null ? !id.equals(order.id) : order.id != null) return false;
+        if (orderDate != null ? !orderDate.equals(order.orderDate) : order.orderDate != null) return false;
+        return itemOrders != null ? itemOrders.equals(order.itemOrders) : order.itemOrders == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (orderDate != null ? orderDate.hashCode() : 0);
+        result = 31 * result + (itemOrders != null ? itemOrders.hashCode() : 0);
+        return result;
     }
 }
