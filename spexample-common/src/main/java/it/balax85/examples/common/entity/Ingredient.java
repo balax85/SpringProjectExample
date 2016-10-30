@@ -18,9 +18,11 @@ public class Ingredient {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "INGREDIENT_TYPE")
+    @Column(name = "TYPE")
     @Enumerated(EnumType.ORDINAL)
     private IngredientType ingredientType;
+
+    @Column(name = "NAME")
 
     @OneToMany(mappedBy = "ingredient", cascade = CascadeType.ALL)
     private List<IngredientItem> ingredientItems;

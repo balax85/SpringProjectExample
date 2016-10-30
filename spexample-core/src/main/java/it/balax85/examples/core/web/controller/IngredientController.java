@@ -1,7 +1,7 @@
 package it.balax85.examples.core.web.controller;
 
-import it.balax85.examples.common.dto.OrderDto;
-import it.balax85.examples.common.service.IOrderService;
+import it.balax85.examples.common.dto.IngredientDto;
+import it.balax85.examples.common.service.IIngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,38 +12,38 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Created by andrea on 23/10/16.
+ * Created by andrea on 30/10/16.
  */
 @RestController
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/ingredient")
+public class IngredientController {
 
-    private IOrderService orderService;
+    private IIngredientService ingredientService;
 
     @Autowired
-    public OrderController(IOrderService orderService) {
-        this.orderService = orderService;
+    public IngredientController(IIngredientService ingredientService) {
+        this.ingredientService = ingredientService;
     }
 
     @RequestMapping(method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public OrderDto insertOrder(OrderDto order) {
-        return orderService.insertOrder(order);
+    public IngredientDto insertOrder(IngredientDto ingredient) {
+        return ingredientService.insertIngredient(ingredient);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public OrderDto findById(@PathVariable("id") Long id) {
-        return orderService.findById(id);
+    public IngredientDto findById(@PathVariable("id") Long id) {
+        return ingredientService.findById(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<OrderDto> getOrders() {
-        return orderService.getOrders();
+    public List<IngredientDto> getIngredients() {
+        return ingredientService.getIngredients();
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
     public void deleteOrder(Long id) {
-        orderService.deleteOrder(id);
+        ingredientService.deleteIngredient(id);
     }
 
 }

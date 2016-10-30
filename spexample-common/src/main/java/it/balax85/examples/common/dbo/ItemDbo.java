@@ -1,5 +1,7 @@
 package it.balax85.examples.common.dbo;
 
+import java.util.List;
+
 /**
  * Created by andrea on 23/10/16.
  */
@@ -12,6 +14,8 @@ public class ItemDbo {
     private String content;
 
     private Float price;
+
+    private List<IngredientDbo> ingredients;
 
     public Long getId() {
         return id;
@@ -45,6 +49,14 @@ public class ItemDbo {
         this.price = price;
     }
 
+    public List<IngredientDbo> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<IngredientDbo> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,7 +67,8 @@ public class ItemDbo {
         if (id != null ? !id.equals(itemDbo.id) : itemDbo.id != null) return false;
         if (itemName != null ? !itemName.equals(itemDbo.itemName) : itemDbo.itemName != null) return false;
         if (content != null ? !content.equals(itemDbo.content) : itemDbo.content != null) return false;
-        return price != null ? price.equals(itemDbo.price) : itemDbo.price == null;
+        if (price != null ? !price.equals(itemDbo.price) : itemDbo.price != null) return false;
+        return ingredients != null ? ingredients.equals(itemDbo.ingredients) : itemDbo.ingredients == null;
 
     }
 
@@ -65,6 +78,7 @@ public class ItemDbo {
         result = 31 * result + (itemName != null ? itemName.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (ingredients != null ? ingredients.hashCode() : 0);
         return result;
     }
 }
