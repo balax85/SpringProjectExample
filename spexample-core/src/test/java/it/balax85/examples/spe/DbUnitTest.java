@@ -19,5 +19,5 @@ import org.springframework.transaction.annotation.Transactional;
 })
 @Rollback
 @Transactional(transactionManager = "speTxManager")
-public class DbUnitTest extends BaseTest {
+public abstract class DbUnitTest extends BaseTest {
 }

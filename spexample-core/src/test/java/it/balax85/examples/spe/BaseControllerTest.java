@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by andrea on 30/10/16.
  */
-public class BaseControllerTest extends DbUnitTest {
+public abstract class BaseControllerTest extends DbUnitTest {
 
     protected MockMvc mockMvc;
 

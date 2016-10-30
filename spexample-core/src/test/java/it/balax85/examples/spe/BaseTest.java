@@ -16,7 +16,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @SpringApplicationConfiguration(SpringProjectExampleApplication.class)
 @WebAppConfiguration
 @ActiveProfiles("test")
-public class BaseTest {
+public abstract class BaseTest {
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
 

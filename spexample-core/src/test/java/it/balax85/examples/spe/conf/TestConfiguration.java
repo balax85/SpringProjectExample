@@ -7,6 +7,6 @@ import org.springframework.context.annotation.PropertySource;
  * Created by andrea on 30/10/16.
  */
 @Configuration
-@PropertySource("classpath:spe.properties")
+@PropertySource("classpath:spe-test.properties")
 public class TestConfiguration {
 }
