@@ -1,7 +1,6 @@
 package it.balax85.examples.common.dao;
 
 import it.balax85.examples.common.dbo.IngredientDbo;
-import it.balax85.examples.common.dbo.OrderDbo;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public interface IIngredientDao {
      * @param ingredient the ingredient to insert
      * @return the ingredient inserted
      */
-    OrderDbo insertIngredient(IngredientDbo ingredient);
+    IngredientDbo insertIngredient(IngredientDbo ingredient);
 
     /**
      * find an ingredient from and id

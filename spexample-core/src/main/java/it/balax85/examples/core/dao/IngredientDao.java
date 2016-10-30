@@ -3,6 +3,9 @@ package it.balax85.examples.core.dao;
 import it.balax85.examples.common.dao.IIngredientDao;
 import it.balax85.examples.common.dbo.IngredientDbo;
 import it.balax85.examples.common.dbo.OrderDbo;
+import it.balax85.examples.core.mapper.IngredientMapper;
+import it.balax85.examples.core.repository.IngredientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -11,23 +14,33 @@ import java.util.List;
  */
 public class IngredientDao implements IIngredientDao {
 
+    private IngredientRepository ingredientRepository;
+
+    private IngredientMapper ingredientMapper;
+
+    @Autowired
+    public IngredientDao(IngredientRepository ingredientRepository,IngredientMapper ingredientMapper) {
+        this.ingredientRepository = ingredientRepository;
+        this.ingredientMapper = ingredientMapper;
+    }
+
     @Override
-    public OrderDbo insertIngredient(IngredientDbo ingredient) {
-        return null;
+    public IngredientDbo insertIngredient(IngredientDbo ingredient) {
+        return ingredientMapper.map(ingredientRepository.save(ingredientMapper.map2entity(ingredient)));
     }
 
     @Override
     public IngredientDbo findById(Long id) {
-        return null;
+        return ingredientMapper.map(ingredientRepository.findById(id));
     }
 
     @Override
     public List<IngredientDbo> getIngredients() {
-        return null;
+        return ingredientMapper.map2Dbo(ingredientRepository.findAll());
     }
 
     @Override
     public void deleteIngredient(Long id) {
-
+        ingredientRepository.delete(id);
     }
 }

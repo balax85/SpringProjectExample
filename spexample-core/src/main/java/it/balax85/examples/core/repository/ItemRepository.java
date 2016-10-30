@@ -17,6 +17,6 @@ public interface ItemRepository extends CrudRepository<Item, Long> {
     List<Item> findAll();
 
     @Query
-    List<Item> findById(@Param("id") Long id);
+    Item findById(@Param("id") Long id);
 
 }

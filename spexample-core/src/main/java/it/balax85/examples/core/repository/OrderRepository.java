@@ -15,6 +15,6 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
     List<Order> findAll();
 
     @Query
-    List<Order> findById(@Param("id") Long id);
+    Order findById(@Param("id") Long id);
 
 }
