@@ -18,6 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
         DbUnitTestExecutionListener.class
 })
 @Rollback
-@Transactional(transactionManager = "speTxManager")
+@Transactional(transactionManager = "springProjectTxManager")
 public abstract class DbUnitTest extends BaseTest {
 }
