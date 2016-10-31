@@ -6,11 +6,11 @@ import javax.persistence.*;
  * Created by andrea on 30/10/16.
  */
 @Entity
-@Table(name = "ORDER_ITEM")
-public class ItemOrder {
+@Table(name = "COMMISSION_ITEM")
+public class ItemCommission {
 
     @Id
-    @SequenceGenerator(name = "pk_sequence", sequenceName = "ORDER_ITEM_ID_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "pk_sequence", sequenceName = "COMMISSION_ITEM_ID_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "pk_sequence")
     @Column(name = "ID")
     private Long id;
@@ -20,8 +20,8 @@ public class ItemOrder {
     private Item item;
 
     @ManyToOne
-    @JoinColumn(name = "ID_ORDER", referencedColumnName = "ID")
-    private Order order;
+    @JoinColumn(name = "ID_COMMISSION", referencedColumnName = "ID")
+    private Commission commission;
 
     public Long getId() {
         return id;
@@ -39,12 +39,12 @@ public class ItemOrder {
         this.item = item;
     }
 
-    public Order getOrder() {
-        return order;
+    public Commission getCommission() {
+        return commission;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setCommission(Commission commission) {
+        this.commission = commission;
     }
 
     @Override
@@ -52,11 +52,11 @@ public class ItemOrder {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ItemOrder itemOrder = (ItemOrder) o;
+        ItemCommission itemCommission = (ItemCommission) o;
 
-        if (id != null ? !id.equals(itemOrder.id) : itemOrder.id != null) return false;
-        if (item != null ? !item.equals(itemOrder.item) : itemOrder.item != null) return false;
-        return order != null ? order.equals(itemOrder.order) : itemOrder.order == null;
+        if (id != null ? !id.equals(itemCommission.id) : itemCommission.id != null) return false;
+        if (item != null ? !item.equals(itemCommission.item) : itemCommission.item != null) return false;
+        return commission != null ? commission.equals(itemCommission.commission) : itemCommission.commission == null;
 
     }
 
@@ -64,7 +64,7 @@ public class ItemOrder {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (item != null ? item.hashCode() : 0);
-        result = 31 * result + (order != null ? order.hashCode() : 0);
+        result = 31 * result + (commission != null ? commission.hashCode() : 0);
         return result;
     }
 }

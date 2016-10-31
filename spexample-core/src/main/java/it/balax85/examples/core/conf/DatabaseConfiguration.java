@@ -55,14 +55,6 @@ public class DatabaseConfiguration {
         if (dataSource == null) {
             HikariDataSource hikariDataSource = new HikariDataSource();
 
-            System.out.println("spe.datasource.driverClassName = " + environment.getProperty("spe.datasource.driverClassName"));
-            System.out.println("spe.datasource.jdbcUrl = " + environment.getProperty("spe.datasource.jdbcUrl"));
-            System.out.println("spe.datasource.username = " + environment.getProperty("spe.datasource.username"));
-            System.out.println("spe.datasource.password = " + environment.getProperty("spe.datasource.password"));
-            System.out.println("spe.datasource.minPoolSize = " + environment.getProperty("spe.datasource.minPoolSize", Integer.class, 5));
-            System.out.println("spe.datasource.maxPoolSize = " + environment.getProperty("spe.datasource.maxPoolSize", Integer.class, 10));
-
-
             hikariDataSource.setDriverClassName(environment.getProperty("spe.datasource.driverClassName"));
             hikariDataSource.setJdbcUrl(environment.getProperty("spe.datasource.jdbcUrl"));
             hikariDataSource.setUsername(environment.getProperty("spe.datasource.username"));
@@ -70,7 +62,7 @@ public class DatabaseConfiguration {
             hikariDataSource.setMinimumIdle(environment.getProperty("spe.datasource.minPoolSize", Integer.class, 5));
             hikariDataSource.setMaximumPoolSize(environment.getProperty("spe.datasource.maxPoolSize", Integer.class, 10));
 
-            System.out.println("Data soruce = " + hikariDataSource);
+            dataSource = hikariDataSource;
 
         }
 

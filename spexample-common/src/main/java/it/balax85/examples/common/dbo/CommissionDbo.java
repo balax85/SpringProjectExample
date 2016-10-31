@@ -6,11 +6,11 @@ import java.util.List;
 /**
  * Created by andrea on 23/10/16.
  */
-public class OrderDbo {
+public class CommissionDbo {
 
     private Long id;
 
-    private Date orderDate;
+    private Date commissionDate;
 
     private List<ItemDbo> items;
 
@@ -22,12 +22,12 @@ public class OrderDbo {
         this.id = id;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public Date getCommissionDate() {
+        return commissionDate;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setCommissionDate(Date commissionDate) {
+        this.commissionDate = commissionDate;
     }
 
     public List<ItemDbo> getItems() {
@@ -43,18 +43,18 @@ public class OrderDbo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderDbo orderDbo = (OrderDbo) o;
+        CommissionDbo commissionDbo = (CommissionDbo) o;
 
-        if (id != null ? !id.equals(orderDbo.id) : orderDbo.id != null) return false;
-        if (orderDate != null ? !orderDate.equals(orderDbo.orderDate) : orderDbo.orderDate != null) return false;
-        return items != null ? items.equals(orderDbo.items) : orderDbo.items == null;
+        if (id != null ? !id.equals(commissionDbo.id) : commissionDbo.id != null) return false;
+        if (commissionDate != null ? !commissionDate.equals(commissionDbo.commissionDate) : commissionDbo.commissionDate != null) return false;
+        return items != null ? items.equals(commissionDbo.items) : commissionDbo.items == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (orderDate != null ? orderDate.hashCode() : 0);
+        result = 31 * result + (commissionDate != null ? commissionDate.hashCode() : 0);
         result = 31 * result + (items != null ? items.hashCode() : 0);
         return result;
     }

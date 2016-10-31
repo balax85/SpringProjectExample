@@ -6,12 +6,14 @@ import it.balax85.examples.common.dto.ItemDto;
 import it.balax85.examples.core.mapper.ItemMapper;
 import it.balax85.examples.core.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by andrea on 27/10/16.
  */
+@Repository
 public class ItemDao implements IItemDao {
 
     private ItemRepository itemRepository;

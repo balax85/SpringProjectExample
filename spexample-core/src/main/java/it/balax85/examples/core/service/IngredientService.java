@@ -8,12 +8,14 @@ import it.balax85.examples.core.mapper.IngredientMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by andrea on 30/10/16.
  */
+@Service
 public class IngredientService implements IIngredientService {
 
     private static final Logger logger = LoggerFactory.getLogger(IngredientService.class);

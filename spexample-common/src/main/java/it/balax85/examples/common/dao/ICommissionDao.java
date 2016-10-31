@@ -1,39 +1,38 @@
 package it.balax85.examples.common.dao;
 
-import it.balax85.examples.common.dbo.OrderDbo;
-import it.balax85.examples.common.dto.OrderDto;
+import it.balax85.examples.common.dbo.CommissionDbo;
 
 import java.util.List;
 
 /**
  * Created by andrea on 23/10/16.
  */
-public interface IOrderDao {
+public interface ICommissionDao {
 
     /**
      * insert a new order
-     * @param order the order to insert
+     * @param commission the order to insert
      * @return the order inserted
      */
-    OrderDbo insertOrder(OrderDbo order);
+    CommissionDbo insertCommission(CommissionDbo commission);
 
     /**
      * find an order from and id
      * @param id the order's id
      * @return the order found
      */
-    OrderDbo findById(Long id);
+    CommissionDbo findById(Long id);
 
     /**
      * get all the orders
      * @return the orders
      */
-    List<OrderDbo> getOrders();
+    List<CommissionDbo> getCommissions();
 
     /**
      * delete an order from an id
      * @param id the order's id
      */
-    void deleteOrder(Long id);
+    void deleteCommission(Long id);
 
 }

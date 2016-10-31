@@ -2,16 +2,17 @@ package it.balax85.examples.core.dao;
 
 import it.balax85.examples.common.dao.IIngredientDao;
 import it.balax85.examples.common.dbo.IngredientDbo;
-import it.balax85.examples.common.dbo.OrderDbo;
 import it.balax85.examples.core.mapper.IngredientMapper;
 import it.balax85.examples.core.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by andrea on 30/10/16.
  */
+@Repository
 public class IngredientDao implements IIngredientDao {
 
     private IngredientRepository ingredientRepository;

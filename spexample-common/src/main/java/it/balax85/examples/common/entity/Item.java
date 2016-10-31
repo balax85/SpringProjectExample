@@ -30,7 +30,7 @@ public class Item {
     private List<IngredientItem> ingredientItems;
 
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
-    private List<ItemOrder> itemOrders;
+    private List<ItemCommission> itemCommissions;
 
     public Long getId() {
         return id;
@@ -72,12 +72,12 @@ public class Item {
         this.ingredientItems = ingredientItems;
     }
 
-    public List<ItemOrder> getItemOrders() {
-        return itemOrders;
+    public List<ItemCommission> getItemCommissions() {
+        return itemCommissions;
     }
 
-    public void setItemOrders(List<ItemOrder> itemOrders) {
-        this.itemOrders = itemOrders;
+    public void setItemCommissions(List<ItemCommission> itemCommissions) {
+        this.itemCommissions = itemCommissions;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class Item {
         if (content != null ? !content.equals(item.content) : item.content != null) return false;
         if (price != null ? !price.equals(item.price) : item.price != null) return false;
         if (!ingredientItems.equals(item.ingredientItems)) return false;
-        return itemOrders.equals(item.itemOrders);
+        return itemCommissions.equals(item.itemCommissions);
 
     }
 
@@ -103,7 +103,7 @@ public class Item {
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + ingredientItems.hashCode();
-        result = 31 * result + itemOrders.hashCode();
+        result = 31 * result + itemCommissions.hashCode();
         return result;
     }
 }
