@@ -1,0 +1,7 @@
+it/balax85/examples/spe/BaseTest.class
+it/balax85/examples/spe/conf/TestConfiguration.class
+it/balax85/examples/spe/core/service/IngredientServiceTest.class
+it/balax85/examples/spe/test/category/DevTest.class
+it/balax85/examples/spe/test/category/ManuallyTest.class
+it/balax85/examples/spe/BaseControllerTest.class
+it/balax85/examples/spe/DbUnitTest.class
