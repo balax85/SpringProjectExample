@@ -1,5 +1,7 @@
 package it.balax85.examples.common.entity;
 
+import antlr.collections.Enumerator;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;

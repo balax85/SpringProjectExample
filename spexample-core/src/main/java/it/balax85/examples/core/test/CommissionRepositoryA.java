@@ -1,7 +1,6 @@
-package it.balax85.examples.core.repository;
+package it.balax85.examples.core.test;
 
 import it.balax85.examples.common.entity.Commission;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -16,8 +15,8 @@ import java.util.List;
  */
 @Repository
 @EnableTransactionManagement
-@Transactional(value = "springProjectTxManager")
-public interface CommissionRepository extends CrudRepository<Commission, Long> {
+@Transactional(value = "springProjectTxManager2")
+public interface CommissionRepositoryA extends CrudRepository<Commission, Long> {
 
     List<Commission> findAll();
 
